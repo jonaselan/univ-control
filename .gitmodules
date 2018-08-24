@@ -1,0 +1,3 @@
+[submodule "unidock"]
+	path = unidock
+	url = https://github.com/Laradock/laradock.git
