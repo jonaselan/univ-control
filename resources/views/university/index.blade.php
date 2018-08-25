@@ -21,9 +21,6 @@
                     <td>{{ $c->name }} </td>
                     <td>{{ date("d-m-Y", strtotime($c->founded)) }} </td>
                     <td>
-                        {{--<a href="{{action('UniversityController@show', $c->id)}}">--}}
-                            {{--<span class="glyphicon glyphicon-search icon-option" aria-hidden="true"></span>--}}
-                        {{--</a>--}}
                         <a class="btn btn-default" href="{{action('UniversityController@edit', $c->id)}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>

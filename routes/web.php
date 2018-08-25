@@ -24,16 +24,16 @@ Route::group(['middleware' => 'approved'], function () {
 
 /* universities routes */
 Route::group(['prefix' => 'universities', 'middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
-    Route::get('', 'UniversityController@index')
-        ->name('universities');
-    Route::get('create', 'UniversityController@create')
-        ->name('universities.create');
-    Route::post('', 'UniversityController@store')
-        ->name('universities.store');
-    Route::get('edit/{id}', 'UniversityController@edit')
-        ->name('universities.edit');
-    Route::put('{id}', 'UniversityController@update')
-        ->name('universities.update');
-    Route::get('remove/{id}', 'UniversityController@destroy')
-        ->name('universities.destroy');
+    Route::get('', 'UniversityController@index')->name('universities');
+    Route::get('create', 'UniversityController@create')->name('universities.create');
+    Route::post('', 'UniversityController@store')->name('universities.store');
+    Route::get('edit/{id}', 'UniversityController@edit')->name('universities.edit');
+    Route::put('{id}', 'UniversityController@update')->name('universities.update');
+    Route::get('remove/{id}', 'UniversityController@destroy')->name('universities.destroy');
+});
+
+/* users routes */
+Route::group(['prefix' => 'users', 'middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
+    Route::get('', 'UserController@index')->name('users');
+    Route::get('approved', 'UserController@create')->name('users.approved');
 });

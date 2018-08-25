@@ -18,7 +18,7 @@ class RedirectIfApproved
     public function handle($request, Closure $next, $guard = null)
     {
         // enquanto o usuário não for aprovado
-        if (Auth::user() && Auth::user()->status != "aprovado") {
+        if (Auth::user() && Auth::user()->status != "Approved") {
             return redirect('/block');
         }
 

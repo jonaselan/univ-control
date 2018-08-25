@@ -38,7 +38,7 @@
                         <ul class="navbar-nav animate side-nav">
                             @can('users_index')
                               <li class="nav-item">
-                                  <a class="nav-link" href="#">Users</a>
+                                  <a class="nav-link" href="{{ route('users') }}">Users</a>
                               </li>
                             @endcan
                             @can('universities_index')

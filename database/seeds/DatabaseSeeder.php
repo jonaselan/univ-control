@@ -18,7 +18,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@email.com',
             'password' => bcrypt('123123'),
-            'status' => 'aprovado',
+            'status' => 'Approved',
+            'remember_token' => str_random(10),
+        ]);
+
+        \UnivControl\User::create([
+            'name' => 'user',
+            'email' => 'user@email.com',
+            'password' => bcrypt('123123'),
             'remember_token' => str_random(10),
         ]);
 
