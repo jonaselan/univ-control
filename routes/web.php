@@ -18,6 +18,22 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/block', 'HomeController@block');
 
-Route::group(['middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
+Route::group(['middleware' => 'approved'], function () {
   Route::get('/home', 'HomeController@index')->name('home');
+});
+
+/* universities routes */
+Route::group(['prefix' => 'universities', 'middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
+    Route::get('', 'UniversityController@index')
+        ->name('universities');
+    Route::get('create', 'UniversityController@create')
+        ->name('universities.create');
+    Route::post('', 'UniversityController@store')
+        ->name('universities.store');
+    Route::get('edit/{id}', 'UniversityController@edit')
+        ->name('universities.edit');
+    Route::put('{id}', 'UniversityController@update')
+        ->name('universities.update');
+    Route::get('remove/{id}', 'UniversityController@destroy')
+        ->name('universities.destroy');
 });

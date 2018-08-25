@@ -17,6 +17,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -42,7 +43,7 @@
                             @endcan
                             @can('universities_index')
                               <li class="nav-item">
-                                  <a class="nav-link" href="#">Universities</a>
+                                  <a class="nav-link" href="{{ route('universities') }}">Universities</a>
                               </li>
                             @endcan
                         </ul>
@@ -81,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="mt-90">
+        <main class="mt-90 container">
             @yield('content')
         </main>
     </div>

@@ -13,6 +13,7 @@ class User extends Authenticatable
     public function university(){
         return $this->belongsTo(University::class);
     }
+    
     /**
      * The attributes that are mass assignable.
      *
