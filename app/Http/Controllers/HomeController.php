@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with('msg', 'Seja Bem vindo');
+    }
+
+    public function block()
+    {
+        return view('home')->with('msg', 'Você ainda não possui acesso');
     }
 }

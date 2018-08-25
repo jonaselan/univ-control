@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    {{ $msg }}
                 </div>
             </div>
         </div>

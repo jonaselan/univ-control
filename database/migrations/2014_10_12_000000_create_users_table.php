@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            // como pendente é o primeiro, ele é o padrão
             $table->enum('status', ['pendente', 'aprovado', 'negado']);
             $table->integer('university_id')->unsigned()->nullable();
             $table->foreign('university_id')->references('id')->on('universities');

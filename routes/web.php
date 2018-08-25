@@ -16,5 +16,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/block', 'HomeController@block');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
+  Route::get('/home', 'HomeController@index')->name('home');
+});
