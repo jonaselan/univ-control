@@ -35,12 +35,16 @@
                   </button>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav animate side-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Users</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Universities</a>
-                            </li>
+                            @can('users_index')
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Users</a>
+                              </li>
+                            @endcan
+                            @can('universities_index')
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#">Universities</a>
+                              </li>
+                            @endcan
                         </ul>
 
                         <ul class="navbar-nav ml-md-auto d-md-flex">
