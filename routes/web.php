@@ -23,7 +23,7 @@ Route::group(['middleware' => 'approved'], function () {
 });
 
 /* universities routes */
-Route::group(['prefix' => 'universities', 'middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
+Route::group(['prefix' => 'universities', 'middleware' => ['approved', 'auth'], 'where' => ['id'=>'[0-9]+']], function () {
     Route::get('', 'UniversityController@index')->name('universities');
     Route::get('create', 'UniversityController@create')->name('universities.create');
     Route::post('', 'UniversityController@store')->name('universities.store');
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'universities', 'middleware' => 'approved', 'where' =>
 });
 
 /* users routes */
-Route::group(['prefix' => 'users', 'middleware' => 'approved', 'where' => ['id'=>'[0-9]+']], function () {
+Route::group(['prefix' => 'users', 'middleware' => ['approved', 'auth'], 'where' => ['id'=>'[0-9]+']], function () {
     Route::get('', 'UserController@index')->name('users');
     Route::get('{id}/approved', 'UserController@update')->name('approved');
     Route::get('{id}/denied', 'UserController@update')->name('denied');

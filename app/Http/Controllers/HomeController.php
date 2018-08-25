@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('msg', 'Welcome!');
+        flash('Welcome Aboard!');
+        return view('home');
     }
 
     public function block()

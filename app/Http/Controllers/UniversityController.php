@@ -4,9 +4,16 @@ namespace UnivControl\Http\Controllers;
 
 use UnivControl\University;
 use Illuminate\Http\Request;
+use UnivControl\Http\Requests\UniversityRequest;
 
 class UniversityController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,9 +41,12 @@ class UniversityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UniversityRequest $request)
     {
-        $university = University::create($request->all());
+        if (University::create($request->all()))
+          flash('University created!')->success();
+        else
+          flash('An error has occurred!')->error();
 
         return redirect()
             ->action('UniversityController@index');
@@ -63,7 +73,11 @@ class UniversityController extends Controller
      */
     public function update(Request $request, String $id)
     {
-      University::find($id)->update($request->all());
+      if (University::find($id)->update($request->all()))
+        flash('University updated!')->success();
+      else
+        flash('An error has occurred!')->error();
+        
       return redirect()
           ->action('UniversityController@index');
     }
@@ -76,7 +90,11 @@ class UniversityController extends Controller
      */
     public function destroy(String $id)
     {
-        University::find($id)->delete();
+        if (University::find($id)->delete())
+          flash('University deleted!')->success();
+        else
+          flash('An error has occurred!')->error();
+
         return redirect()
             ->action('UniversityController@index');
     }
