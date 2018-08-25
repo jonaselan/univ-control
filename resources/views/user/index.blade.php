@@ -5,9 +5,6 @@
         <div class="col-md-9">
             <h1>Universities</h1>
         </div>
-        <div class="col-md-3">
-            <a href="{{ action('UserController@create')}}">Create user</a>
-        </div>
     </div>
     @if(count($users))
         <table class="table table-striped table-bordered table-hover">
@@ -31,10 +28,10 @@
                         <a role="button" data-toggle="modal" class="modal-show btn btn-default" data-target="#details{{ $key }}" href title="Details">
                             <i class="fas fa-eye"></i>
                         </a>
-                          <a class="btn btn-default" href="#">
+                          <a class="btn btn-default" href="{{ route('approved', $c->id) }}">
                               <i class="fas fa-check"></i>
                           </a>
-                          <a class="btn btn-default" href="#">
+                          <a class="btn btn-default" href="{{ route('denied', $c->id) }}">
                             <i class="fas fa-times"></i>
                           </a>
                       </td>

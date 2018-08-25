@@ -3,6 +3,7 @@
 namespace UnivControl\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,11 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('msg', 'Seja Bem vindo');
+        return view('home')->with('msg', 'Welcome!');
     }
 
     public function block()
     {
-        return view('home')->with('msg', 'Você ainda não possui acesso');
+        return view('home')->with('msg', Auth::user()->status == 'Denied' ? 'You access was denied' : 'You don\'t have access yet');
     }
 }
