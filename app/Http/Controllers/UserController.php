@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function update(Request $request, String $id)
     {
-      User::find($id)->update(['status' => ucfirst(\Request::route()->getName())]);
+      User::find($id)->update($request->all());
       return redirect()->action('UserController@index');
     }
 

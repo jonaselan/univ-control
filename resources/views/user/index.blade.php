@@ -25,15 +25,12 @@
                       <td>{{ $c->status }} </td>
                       <td>{{ date("d-m-Y", strtotime($c->created_at)) }} </td>
                       <td>
-                        <a role="button" data-toggle="modal" class="modal-show btn btn-default" data-target="#details{{ $key }}" href title="Details">
+                        <a role="button" data-toggle="modal" class="modal-show btn btn-default" data-target="#details-{{ $key }}" href title="Details">
                             <i class="fas fa-eye"></i>
                         </a>
-                          <a class="btn btn-default" href="{{ route('approved', $c->id) }}">
-                              <i class="fas fa-check"></i>
-                          </a>
-                          <a class="btn btn-default" href="{{ route('denied', $c->id) }}">
-                            <i class="fas fa-times"></i>
-                          </a>
+                        <a role="button" data-toggle="modal" class="modal-show btn btn-default" data-target="#access-{{ $key }}" href title="Config">
+                            <i class="fas fa-cog"></i>
+                        </a>
                       </td>
                   </tr>
                 @endif
@@ -42,6 +39,7 @@
         {{ $users->links() }}
 
         @each('user.show', $users, 'user')
+        @each('user.set_access', $users, 'user')
     @else
         <h2> There is no users registered </h2>
     @endif

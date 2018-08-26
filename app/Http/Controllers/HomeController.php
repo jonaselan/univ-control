@@ -24,12 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        flash('Welcome Aboard!');
-        return view('home');
+        return view('home')->with('msg', "Hello, ". Auth::user()->name);
     }
 
     public function block()
     {
-        return view('home')->with('msg', Auth::user()->status == 'Denied' ? 'You access was denied' : 'You don\'t have access yet');
+      $msg = "Hello, ". Auth::user()->name;
+      if (Auth::user()->status == 'Denied')
+        $msg = 'You access was denied';
+      elseif (Auth::user()->status == 'Pending')
+        $msg = 'You don\'t have access yet';
+
+      return view('home')
+                  ->with('msg', $msg);
     }
 }

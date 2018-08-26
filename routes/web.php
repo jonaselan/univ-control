@@ -35,6 +35,5 @@ Route::group(['prefix' => 'universities', 'middleware' => ['approved', 'auth'], 
 /* users routes */
 Route::group(['prefix' => 'users', 'middleware' => ['approved', 'auth'], 'where' => ['id'=>'[0-9]+']], function () {
     Route::get('', 'UserController@index')->name('users');
-    Route::get('{id}/approved', 'UserController@update')->name('approved');
-    Route::get('{id}/denied', 'UserController@update')->name('denied');
+    Route::put('{id}', 'UserController@update')->name('users.update');
 });

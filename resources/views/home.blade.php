@@ -8,8 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                  Hello, {{ Auth::user()->name }} 
-
+                  {{ $msg }}
                 </div>
             </div>
         </div>
