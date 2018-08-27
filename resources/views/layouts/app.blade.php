@@ -16,6 +16,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -89,8 +93,7 @@
     <script>
          $('div.alert').not('.alert-important').delay(4000).fadeOut(450);
      </script>
-     <!-- Scripts -->
-     <script src="{{ asset('js/app.js') }}" defer></script>
+
 </body>
 
 </html>

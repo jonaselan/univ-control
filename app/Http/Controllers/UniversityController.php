@@ -21,7 +21,7 @@ class UniversityController extends Controller
      */
     public function index()
     {
-      $universities = University::latest()->simplePaginate(10);
+      $universities = University::latest()->simplePaginate(5);
       return view('university.index')->withUniversities($universities);
     }
 
@@ -77,7 +77,7 @@ class UniversityController extends Controller
         flash('University updated!')->success();
       else
         flash('An error has occurred!')->error();
-        
+
       return redirect()
           ->action('UniversityController@index');
     }

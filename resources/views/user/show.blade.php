@@ -32,7 +32,7 @@
                     </tr>
                     <tr>
                         <td><b>University:</b></td>
-                        <td>{{ $user->university ?? 'Not informed yet' }}</td>
+                        <td>{{ $user->university ? $user->university->name : 'Not informed yet' }}</td>
                     </tr>
                     <tr>
                         <td><b>Created at:</b></td>
