@@ -18,6 +18,12 @@ class UserController extends Controller
       return view('user.index')->withUsers($users);
     }
 
+    public function show(String $id)
+    {
+      return view('user.profile')
+                ->withUser(User::find($id));
+    }
+
     /**
      * Update the specified resource in storage.
      *

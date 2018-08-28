@@ -32,11 +32,15 @@
             <div id="wrapper" class="animate">
                 <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
                     <a class="navbar-brand" href="#">{{ config('app.name', 'Laravel') }}</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav animate side-nav">
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('users.show', ['id' => \Auth::id()]) }}">Profile</a>
+                          </li>
                             @can('users_index')
                               <li class="nav-item">
                                   <a class="nav-link" href="{{ route('users') }}">Users</a>

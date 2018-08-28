@@ -11,8 +11,9 @@
 |
 */
 
+/* home */
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Auth::routes();
@@ -35,5 +36,6 @@ Route::group(['prefix' => 'universities', 'middleware' => ['approved', 'auth'], 
 /* users routes */
 Route::group(['prefix' => 'users', 'middleware' => ['approved', 'auth'], 'where' => ['id'=>'[0-9]+']], function () {
     Route::get('', 'UserController@index')->name('users');
+    Route::get('{id}', 'UserController@show')->middleware('owner')->name('users.show');
     Route::put('{id}', 'UserController@update')->name('users.update');
 });

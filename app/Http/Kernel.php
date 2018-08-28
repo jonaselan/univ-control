@@ -58,6 +58,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \UnivControl\Http\Middleware\RedirectIfAuthenticated::class,
         'approved' => \UnivControl\Http\Middleware\RedirectIfApproved::class,
+        'owner' => \UnivControl\Http\Middleware\RedirectIfNotOwner::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
